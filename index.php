@@ -3,7 +3,9 @@
 // which version of the site
 define('SERVER', 'local');
 
-error_reporting(E_STRICT);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if ( defined('SERVER') && SERVER != 'live' ) {
     $GLOBALS['time'] = microtime(true);

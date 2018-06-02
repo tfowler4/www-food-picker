@@ -232,7 +232,7 @@
 
         $.ajax({
             type: 'GET',
-            url: 'http://192.168.1.83/site-foods/services/getRandomRestaurant/',
+            url: 'http://local.foods.com/services/getRandomRestaurant/',
             dataType: 'json',
             success: function(data) {                
                 $('#random-restaurant').html('Top 10 Picks!<br>');
@@ -276,8 +276,9 @@
 
         $.ajax({
             type: 'GET',
-            url: 'http://192.168.1.83/site-foods/services/getRestaurantById/' + id,
+            url: 'http://local.foods.com/services/getRestaurantById/' + id,
             dataType: 'json',
+            crossDomain: true,
             success: function(data) {
                 if ( data.length != 0 ) {
                     $('#edit-food-form [name="name"]').val(data.name);
@@ -311,7 +312,7 @@
         $.ajax({
             type: 'POST',
             data: formData,
-            url: 'http://192.168.1.83/site-foods/services/addRestaurant/',
+            url: 'http://local.foods.com/services/addRestaurant/',
             dataType: 'json',
             cache: false,
             contentType : false,
@@ -343,7 +344,7 @@
         $.ajax({
             type: 'POST',
             data: formData,
-            url: 'http://192.168.1.83/site-foods/services/saveRestaurant/',
+            url: 'http://local.foods.com/services/saveRestaurant/',
             dataType: 'json',
             cache: false,
             contentType : false,
@@ -375,7 +376,7 @@
         $.ajax({
             type: 'POST',
             data: formData,
-            url: 'http://192.168.1.83/site-foods/services/getRandomRestaurantWithFilters/',
+            url: 'http://local.foods.com/services/getRandomRestaurantWithFilters/',
             dataType: 'json',
             cache: false,
             contentType : false,

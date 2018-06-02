@@ -29,12 +29,12 @@ class DiningTypeModel extends AbstractModel {
     private function _getDiningTypesFromDb() {
         $query = sprintf(
             "SELECT
-                Dining_types.id AS id,
-                Dining_types.name AS name
+                Dining_Types.id AS id,
+                Dining_Types.name AS name
             FROM
-                Dining_types
+                Dining_Types
             ORDER BY
-                Dining_types.name ASC"
+                Dining_Types.name ASC"
         );
         $query = $this->_dbh->prepare($query);
 

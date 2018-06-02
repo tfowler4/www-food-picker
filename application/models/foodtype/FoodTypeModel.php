@@ -29,12 +29,12 @@ class FoodTypeModel extends AbstractModel {
     private function _getFoodTypesFromDb() {
         $query = sprintf(
             "SELECT
-                Food_types.id AS id,
-                Food_types.name AS name
+                Food_Types.id AS id,
+                Food_Types.name AS name
             FROM
-                Food_types
+                Food_Types
             ORDER BY
-                Food_types.name ASC"
+                Food_Types.name ASC"
         );
         $query = $this->_dbh->prepare($query);
 

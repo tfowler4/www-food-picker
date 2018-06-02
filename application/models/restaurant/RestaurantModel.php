@@ -32,7 +32,7 @@ class RestaurantModel extends AbstractModel {
                 Restaurants.id AS id,
                 Restaurants.name AS name,
                 Locations.name AS location,
-                Food_types.name AS food_type,
+                Food_Types.name AS food_type,
                 Dining_Types.name AS dining_type,
                 Meals.name AS meal
             FROM
@@ -84,11 +84,11 @@ class RestaurantModel extends AbstractModel {
                 Restaurants.id AS id,
                 Restaurants.name AS name,
                 Locations.name AS location,
-                Food_types.name AS food_type,
+                Food_Types.name AS food_type,
                 Dining_Types.name AS dining_type,
                 Meals.name AS meal,
                 Locations.id AS location_id,
-                Food_types.id AS food_type_id,
+                Food_Types.id AS food_type_id,
                 Dining_Types.id AS dining_type_id,
                 Meals.id AS meal_id
             FROM
@@ -184,7 +184,7 @@ class RestaurantModel extends AbstractModel {
                 Restaurants.id AS id,
                 Restaurants.name AS name,
                 Locations.name AS location,
-                Food_types.name AS food_type,
+                Food_Types.name AS food_type,
                 Dining_Types.name AS dining_type,
                 Meals.name AS meal
             FROM
