@@ -1,0 +1,407 @@
+<div id="content" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button class="btn btn-lrg btn-danger" id="random-btn">Run Randomizer!</button>
+
+            <div style="margin:10px;"></div>
+
+            <strong><div class="alert alert-info" style="display:none;" id="random-restaurant"></div></strong>
+        </div>
+    </div>
+    
+    <hr>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Randomize with filters!
+                </div>
+
+                <div class="panel-body">
+                    <form id="random-food-form" action="POST">
+                        <div class="form-group">
+                            <label>Food Type</label>
+
+                            <select class="form-control" name="food-type">
+                                <option value="">Any Food Type</option>
+
+                                <?php foreach ( $foodTypes as $foodType ) { ?>
+                                    <option value="<?php echo $foodType['id']; ?>"><?php echo $foodType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+
+                            <select class="form-control" name="location">
+                                <option value="">Any Location</option>
+
+                                <?php foreach ( $locations as $location ) { ?>
+                                    <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dining Type</label>
+
+                            <select class="form-control" name="dining-type">
+                                <option value="">Any Dining Type</option>
+
+                                <?php foreach ( $diningTypes as $diningType ) { ?>
+                                    <option value="<?php echo $diningType['id']; ?>"><?php echo $diningType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meal</label>
+
+                            <select class="form-control" name="meal">
+                                <option value="">Any Meal Type</option>
+
+                                <?php foreach ( $meals as $meal ) { ?>
+                                    <option value="<?php echo $meal['id']; ?>"><?php echo $meal['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-info">Lets go!</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Add a Spot!
+                </div>
+
+                <div class="panel-body">
+                    <form id="add-food-form" action="POST">
+                        <div class="form-group">
+                            <label>Restaurant Name</label>
+                            <input class="form-control" type="text" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Food Type</label>
+
+                            <select class="form-control" name="food-type">
+                                <?php foreach ( $foodTypes as $foodType ) { ?>
+                                    <option value="<?php echo $foodType['id']; ?>"><?php echo $foodType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+
+                            <select class="form-control" name="location">
+                                <?php foreach ( $locations as $location ) { ?>
+                                    <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dining Type</label>
+
+                            <select class="form-control" name="dining-type">
+                                <?php foreach ( $diningTypes as $diningType ) { ?>
+                                    <option value="<?php echo $diningType['id']; ?>"><?php echo $diningType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meal</label>
+
+                            <select class="form-control" name="meal">
+                                <?php foreach ( $meals as $meal ) { ?>
+                                    <option value="<?php echo $meal['id']; ?>"><?php echo $meal['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add!</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Edit a Spot!
+                </div>
+
+                <div class="panel-body">
+                    <form id="edit-food-form" action="POST">
+                        <div class="form-group">
+                            <label>Restaurant</label>
+
+                            <select class="form-control" name="id">
+                                <option value=""></option>
+
+                                <?php foreach ( $restaurants as $restaurant ) { ?>
+                                    <option value="<?php echo $restaurant['id']; ?>"><?php echo $restaurant['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" type="text" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Food Type</label>
+
+                            <select class="form-control" name="food-type">
+                                <?php foreach ( $foodTypes as $foodType ) { ?>
+                                    <option value="<?php echo $foodType['id']; ?>"><?php echo $foodType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+
+                            <select class="form-control" name="location">
+                                <?php foreach ( $locations as $location ) { ?>
+                                    <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dining Type</label>
+
+                            <select class="form-control" name="dining-type">
+                                <?php foreach ( $diningTypes as $diningType ) { ?>
+                                    <option value="<?php echo $diningType['id']; ?>"><?php echo $diningType['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meal</label>
+
+                            <select class="form-control" name="meal">
+                                <?php foreach ( $meals as $meal ) { ?>
+                                    <option value="<?php echo $meal['id']; ?>"><?php echo $meal['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save!</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getFormData(form) {
+        var formData = new FormData(form[0]);
+
+        form.find('input[type="file"]').each(function() {
+            var name = $(this).attr('name');
+            var file = $(this)[0].files[0];
+
+            if ( file == undefined ) {
+                return;
+            }
+
+            formData.append(name, file);
+        });
+
+        return formData;
+    }
+
+    $('#random-btn').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://192.168.1.83/site-foods/services/getRandomRestaurant/',
+            dataType: 'json',
+            success: function(data) {                
+                $('#random-restaurant').html('Top 10 Picks!<br>');
+
+                var count = 0;
+                var max   = 10;
+
+                for ( id in data ) {
+                    var restaurant = data[id];
+
+                    $('#random-restaurant').append(restaurant.name + ' - ' + restaurant.food_type + ' - ' + restaurant.location + ' - Picked: ' + restaurant.count + ' times<br>');
+                
+                    count++;
+
+                    if ( count == max ) {
+                        break;
+                    }
+                }
+
+                $('#random-restaurant').fadeIn();
+            },
+            error: function(xhr, status, thrownError, error){
+                console.log('error');
+                console.log(xhr);
+                console.log(status);
+                console.log(thrownError);
+                console.log(error);
+            },
+            complete: function(data) {
+                
+            },
+            async: true
+        }); 
+    });
+
+    $('#edit-food-form [name="id"]').change(function(event) {
+        var id = $(this).val();
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://192.168.1.83/site-foods/services/getRestaurantById/' + id,
+            dataType: 'json',
+            success: function(data) {
+                if ( data.length != 0 ) {
+                    $('#edit-food-form [name="name"]').val(data.name);
+                    $('#edit-food-form [name="location"]').val(data.location_id);     
+                    $('#edit-food-form [name="food-type"]').val(data.food_type_id);
+                    $('#edit-food-form [name="dining-type"]').val(data.dining_type_id);
+                    $('#edit-food-form [name="meal"]').val(data.meal_id);       
+                }
+            },
+            error: function(xhr, status, thrownError, error){
+                console.log('error');
+                console.log(xhr);
+                console.log(status);
+                console.log(thrownError);
+                console.log(error);
+            },
+            complete: function(data) {
+                console.log('done');
+            },
+            async: true
+        }); 
+    });
+
+    $('#add-food-form').submit(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var form     = $('#add-food-form');
+        var formData = getFormData(form);
+
+        $.ajax({
+            type: 'POST',
+            data: formData,
+            url: 'http://192.168.1.83/site-foods/services/addRestaurant/',
+            dataType: 'json',
+            cache: false,
+            contentType : false,
+            processData : false,
+            success: function(data) {
+                //callBack(data);
+            },
+            error: function(xhr, status, thrownError, error){
+                console.log('error');
+                console.log(xhr);
+                console.log(status);
+                console.log(thrownError);
+                console.log(error);
+            },
+            complete: function(data) {
+                console.log('done');
+            },
+            async: true
+        });        
+    });
+
+    $('#edit-food-form').submit(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var form     = $('#edit-food-form');
+        var formData = getFormData(form);
+
+        $.ajax({
+            type: 'POST',
+            data: formData,
+            url: 'http://192.168.1.83/site-foods/services/saveRestaurant/',
+            dataType: 'json',
+            cache: false,
+            contentType : false,
+            processData : false,
+            success: function(data) {
+                console.log('saved');
+            },
+            error: function(xhr, status, thrownError, error){
+                console.log('error');
+                console.log(xhr);
+                console.log(status);
+                console.log(thrownError);
+                console.log(error);
+            },
+            complete: function(data) {
+                console.log('done');
+            },
+            async: true
+        });        
+    });
+
+    $('#random-food-form').submit(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var form     = $('#random-food-form');
+        var formData = getFormData(form);
+
+        $.ajax({
+            type: 'POST',
+            data: formData,
+            url: 'http://192.168.1.83/site-foods/services/getRandomRestaurantWithFilters/',
+            dataType: 'json',
+            cache: false,
+            contentType : false,
+            processData : false,
+            success: function(data) {
+                if ( data.length == 0 ) {
+                    $('#random-restaurant').text('No matches found!');
+                } else {
+                    $('#random-restaurant').text(data.name + ' - ' + data.location);
+                }
+
+                $('#random-restaurant').fadeIn();
+
+                console.log(data);
+            },
+            error: function(xhr, status, thrownError, error){
+                console.log('error');
+                console.log(xhr);
+                console.log(status);
+                console.log(thrownError);
+                console.log(error);
+            },
+            complete: function(data) {
+                console.log('done');
+            },
+            async: true
+        });        
+    });
+</script>

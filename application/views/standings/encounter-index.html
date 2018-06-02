@@ -1,0 +1,39 @@
+<div id="content" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-10 col-xs-push-1 text-center">
+            <!-- ad -->
+            <?php $this->_loadView('ads/horizontal-ad'); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8 col-xs-push-1">
+            <!-- header -->
+            <?php $this->_loadView('standings/pane-encounter-header', $this->_data); ?>
+        </div>
+    </div>
+
+    <hr style="margin:5px;">
+
+    <div class="row">
+        <div class="col-xs-8 col-xs-push-1">
+            <!-- main dungeon table -->
+            <?php $this->_loadView('standings/pane-encounter-table-container', $this->_data); ?>
+
+            <!-- glossary row -->
+            <?php $this->_loadView('standings/pane-glossary'); ?>
+        </div>
+
+        <div class="col-xs-2 col-xs-push-1">
+            <?php $this->_loadView('standings/pane-encounter-details', $this->_data['profile']); ?>
+
+            <?php $this->_loadView('standings/pane-recent-encounter-activity', $this->_data); ?>
+        </div>
+    </div>
+
+    <!-- popover content -->
+    <?php $this->_loadView('standings/popovers', $this->_data); ?>
+
+    <!-- modal content -->
+    <?php $this->_loadView('standings/modals'); ?>
+</div>

@@ -1,0 +1,39 @@
+<div class="panel panel-primary" style="margin-bottom:5px;">
+    <div class="panel-heading text-left" style="font-family:Verdana;">
+        <div style="display:table; width:100%;">
+            <div style="display:table-cell; width:50%; vertical-align:middle;" class="text-left">
+                <div><span style="font-size:1.3em;" id="table-header-text">Worldwide Standings</span></div>
+                <div><small style="opacity:0.7;" id="table-subheader-text">Guild Listing View</small></div>
+            </div>
+
+            <div style="display:table-cell; width:50%; vertical-align:middle;" class="text-right">
+                <button type="button" class="btn table-options view-selector-btn" data-toggle="popover" title="View Filters" data-popover-content="view-selector-btn" data-trigger="focus">
+                    <i class="fa fa-cog" style="font-size:1.5em;"></i>
+                </button>
+
+                <button type="button" class="btn table-options refresh-data-btn" data-toggle="tooltip" title="Refresh Data" data-standings-id="<?php echo $id; ?>" data-view-filter="world" data-view-type="encounter">
+                    <i class="fa fa-refresh" style="font-size:1.5em;"></i>
+                </button>
+
+                <button type="button" class="btn table-options hide-inactive-guilds-btn" data-toggle="tooltip" title="Hide Inactive Guilds">
+                    <i class="fa fa-eye-slash" style="font-size:1.5em;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="table-container">
+        <?php $this->_loadView('standings/table-encounter-listing-world', $this->_data); ?>
+    </div>
+
+    <div id="loader-container" class="table-loader text-center" style="display:none; padding:10px;">
+        <i class="" style="font-size:100px;"></i>
+        <div></div>
+    </div>
+</div>
+
+<style>
+    .panel table {
+        margin-bottom:0;
+    }
+</style>

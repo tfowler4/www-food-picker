@@ -1,0 +1,484 @@
+<!--
+    global modals html
+-->
+
+<div id="global-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="login-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-center" style="padding:20px 0px 40px 0px;">
+                <h3 class="modal-title" style="font-family:Verdana;">
+                    <div style="display:inline-block; margin:auto; border:4px solid #fff; border-radius:50% !important; height:150px; width:150px; line-height:150px;">
+                        <i class="fa fa-lock" style="font-size:4.0em; vertical-align:middle;"></i>
+                    </div>
+                    <br>
+                    Login
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 text-center"></div>
+
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-user fa-fw"></i>
+                    </div>
+
+                    <small>Username</small>
+                </div>
+
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-lock fa-fw"></i>
+                    </div>
+
+                    <small>Password</small>
+                </div>
+
+                <div class="col-xs-3 text-center"></div>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <form data-toggle="validator" action="<?php echo SITE_URL . 'userpanel'; ?>" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <input type="email" class="form-control input-lg" name="username" placeholder="Email" required>
+
+                                    <span class="glyphicon form-control-feedback"></span>
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <input type="password" class="form-control input-lg" name="password" placeholder="Password" required>
+
+                                    <span class="glyphicon form-control-feedback"></span>
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                        <i class="fa fa-sign-in fa-fw fa-lg fa-fw"></i> Login
+                                    </button>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="#">Forgot Password?</a>
+                                    <br>
+                                    Don't have an account? <a href="#">Create one</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="submit-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-center" style="padding:20px 0px 40px 0px;">
+                <h3 class="modal-title" style="font-family:Verdana;">
+                    <div style="display:inline-block; margin:auto; border:4px solid #fff; border-radius:50% !important; height:150px; width:150px; line-height:150px;">
+                        <i class="fa fa-upload" style="font-size:4.0em; vertical-align:middle;"></i>
+                    </div>
+                    <br>
+                    Submit A Kill
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-user fa-fw"></i>
+                    </div>
+
+                    <small>Select Guild</small>
+                </div>
+
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-paw fa-fw"></i>
+                    </div>
+
+                    <small>Choose Encounter</small>
+                </div>
+
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-picture-o fa-fw"></i>
+                    </div>
+
+                    <small>Upload Screenshot</small>
+                </div>
+
+                <div class="col-xs-3 text-center">
+                    <div class="modal-circle">
+                        <i class="fa fa-upload fa-fw"></i>
+                    </div>
+
+                    <small>Submit</small>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <form data-toggle="validator" action="<?php echo SITE_URL . 'userpanel'; ?>" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group has-feedback">
+                                    <select id="input-guild" class="form-control input-lg" name="guild" title="Guild" data-error="Select a Guild" required>
+                                    </select>
+
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <select id="input-encounter" class="form-control input-lg" name="encounter" title="Encounter" data-error="Select an encounter" required>
+                                    </select>
+
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <div class="input-group date datetimepicker">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar fa-fw fa-lg open-datetimepicker"></span>
+                                        </span>
+                                        <input
+                                        type='text'
+                                        class="form-control input-lg datetime-input"
+                                        placeholder="Date/Time"
+                                        name='datetime'
+                                        required>
+                                    </div>
+
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <div class="input-group">
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-primary btn-lg">
+                                                Browse <input type="file" style="display: none;" accept="image/*" data-error="A valid screenshot is required" multiple required>
+                                            </span>
+                                        </label>
+
+                                        <input type="text" class="form-control input-lg" placeholder="No file selected" readonly>
+                                    </div>
+
+                                    <small><i><span class="help-block with-errors"></span></i></small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">
+                                    <i class="fa fa-upload fa-fw fa-lg"></i> Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="video-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-left">
+                <span class="modal-title h4">
+                    Guild Name
+                </span>
+            </div>
+
+            <div class="modal-body text-center" style="padding:0px; margin-top:-1px; margin-bottom:-1px;">
+                <div id="video-carousel" class="carousel slide" data-ride="carousel" data-interval="false" style="margin:0px;">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators" style="top:0px; height:12px;">
+                        <?php $active = 'active'; ?>
+
+                        <li data-target="#video-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#video-carousel" data-slide-to="1" class=""></li>
+                        <li data-target="#video-carousel" data-slide-to="2" class=""></li>
+
+                        <?php foreach ( $videos as $index => $video ) { ?>
+                            <li data-target="#video-carousel" data-slide-to="<?php echo $index; ?>" class="<?php echo $active; ?>"></li>
+
+                            <?php $active = ''; ?>
+                        <?php } ?>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div style="display:table; height:515px; width:100%;" class="video-loader">
+                                <div style="display:table-cell; margin:auto; vertical-align:middle;">
+                                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style="font-size:100px;"></i>
+
+                                    <br>
+
+                                    Loading...
+                                </div>
+                            </div>
+
+                            <div class="embed-responsive embed-responsive-16by9" style="display:none;">
+                                <iframe width="854" height="480" data-src="https://www.youtube.com/embed/sY-O0_cf0aQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div style="display:table; height:515px; width:100%;" class="video-loader">
+                                <div style="display:table-cell; margin:auto; vertical-align:middle;">
+                                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style="font-size:100px;"></i>
+
+                                    <br>
+
+                                    Loading...
+                                </div>
+                            </div>
+
+                            <div class="embed-responsive embed-responsive-16by9" style="display:none;">
+                                <iframe width="854" height="480" data-src="https://www.youtube.com/embed/3pZ0Fxe-uKY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div style="display:table; height:515px; width:100%;" class="video-loader">
+                                <div style="display:table-cell; margin:auto; vertical-align:middle;">
+                                    <i class="fa fa-circle-o-notch fa-spin fa-fw" style="font-size:100px;"></i>
+
+                                    <br>
+
+                                    Loading...
+                                </div>
+                            </div>
+
+                            <div class="embed-responsive embed-responsive-16by9" style="display:none;">
+                                <iframe width="854" height="480" data-src="https://www.youtube.com/embed/k9Ox1GpNUe0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <?php $active = 'active'; ?>
+
+                        <?php foreach ( $videos as $index => $video ) { ?>
+                            <?php
+                            $url = $video['url'];
+
+                            if ( strpos($video['url'], 'youtube') !== FALSE ) {
+                                $url = preg_replace(
+                                    "/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+                                    "//www.youtube.com/embed/$1",
+                                    $video['url']
+                                );
+                            }
+
+                            if ( strpos($video['url'], 'youtu.be') !== FALSE ) {
+                                $url = preg_replace(
+                                    "/\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+                                    "//www.youtube.com/embed/$1",
+                                    $video['url']
+                                );
+                            }
+                            ?>
+
+                            <div class="item <?php echo $active; ?>">
+                                <?php if ( strpos($video['url'], 'twitch') !== FALSE ) { ?>
+                                    <div class="text-center">
+                                        <a href="<?php echo $video['url']; ?>" target="_blank"><img src="<?php echo SITE_URL . 'public/images/logos/twitch.svg'; ?>"></a>
+                                    </div>
+                                <?php } else if ( strpos($url, 'youtu.be') !== FALSE || strpos($url, 'youtube') !== FALSE ) { ?>
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class='embed-responsive-item' src="<?php echo $url; ?>" allowfullscreen></iframe>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="text-center">
+                                        <a href="<?php echo $video['url']; ?>" target="_blank"><i class="fa fa-video-camera fa-fw" style="font-size:300px;"></i></a>
+                                    </div>
+                                <?php } ?>
+
+                                <br>
+
+                                <div class="text-center"><a href="<?php echo $video['url']; ?>;" class="btn btn-primary" target="_blank"><i class="fa fa-external-link fa-fw fa-lg"></i> <?php echo $video['url']; ?></a></div>
+                            </div>
+                            <?php $active = ''; ?>
+                        <?php } ?>
+                    </div>
+
+                    <a class="left carousel-control text-primary" href="#video-carousel" role="button" data-slide="prev" style="color:#337ab7; width:5%; margin-left:-10px; background-image:none !important;">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="right carousel-control text-primary" href="#video-carousel" role="button" data-slide="next" style="color:#337ab7; width:5%; margin-right:-10px; background-image:none !important;">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="modal-footer text-right bg-primary">
+                <span class="h4">Encounter A - 11/11/2018</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-open {
+        overflow:auto !important;
+        padding-right:0px !important;
+    }
+
+    .modal-circle {
+        margin:auto;
+        margin-top:-30px;
+        height:60px;
+        width:60px;
+        border:1px solid #337ab7;
+        border-radius:50% !important;
+        background-color:#fff;
+        text-align:center;
+        color:#337ab7;
+        line-height:60px;
+    }
+
+    .modal-circle i {
+        font-size:2.2em;
+        vertical-align:middle;
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+</style>
+
+<script>
+    $(document).on('change', ':file', function() {
+        var input    = $(this);
+        var numFiles = input.get(0).files ? input.get(0).files.length : 1;
+        var label    = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(':file').on('fileselect', function(event, numFiles, label) {
+        var input = $(this).parents('.input-group').find(':text');
+        var log   = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) {
+                alert(log);
+            }
+        }
+    });
+
+    $(document).on('show.bs.modal', '#submit-modal', function(event) {
+        if ( $('#input-guild option').length == 0 ) {
+            $.ajax({
+                type : "GET",
+                url :  global.baseUrl + 'services/getGuilds',
+                dataType : 'json',
+                cache : true,
+                beforeSend : function() {},
+                success: function(data) {
+                    console.log(data);
+
+                    if ( data && data.length > 0 ) {
+                        var html = '';
+
+                        for ( var i = 0; i < data.length; i++ ) {
+                            html += '<option>' + data[i].name + '</option>';
+                        }
+
+                        $('#input-guild').html(html);
+
+                        $('#input-guild').selectpicker({
+                            liveSearchStyle : 'contains',
+                            liveSearch : true,
+                            width : '100%'
+                        });
+
+                        $('.bootstrap-select button').css('height', '100%');
+                        $('.bootstrap-select button').css('font-size', '18px');
+                    }
+                },
+                error: function(xhr, status, thrownError, error) {},
+                complete:function() {},
+                async : true
+            });
+        }
+
+        if ( $('#input-encounter option').length == 0 ) {
+            $.ajax({
+                type : "GET",
+                url :  global.baseUrl + 'services/getEncounters',
+                dataType : 'json',
+                cache : true,
+                beforeSend : function() {},
+                success: function(data) {
+                    console.log(data);
+
+                    if ( data && data.length > 0 ) {
+                        var html = '';
+
+                        for ( var i = 0; i < data.length; i++ ) {
+                            html += '<option>' + data[i].name + '</option>';
+                        }
+
+                        $('#input-encounter').html(html);
+
+                        $('#input-encounter').selectpicker({
+                            liveSearchStyle : 'contains',
+                            liveSearch : true,
+                            width : '100%'
+                        });
+
+                        $('.bootstrap-select button').css('height', '100%');
+                        $('.bootstrap-select button').css('font-size', '18px');
+                    }
+                },
+                error: function(xhr, status, thrownError, error) {},
+                complete:function() {},
+                async : true
+            });
+        }
+
+        $('form').validator();
+    });
+
+    $('form').on('submit', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+</script>

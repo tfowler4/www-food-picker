@@ -1,0 +1,87 @@
+<div class="panel panel-primary">
+    <div class="panel-heading text-left">
+        <div class="side-panel-header">
+            <div class="left">
+                <div>Recent Activity</div>
+            </div>
+
+            <div class="right">
+                <a href="#" class="collapse-pane-btn"><i class="fa fa-compress"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group panel-content recent-activity-panel">
+        <?php if ( count($recentActivity) == 0 ) { ?>
+            <a href="#" class="list-group-item text-center">
+                No data found.
+            </a>
+        <?php } else { ?>
+            <?php for ( $i = 0; $i < count($recentActivity); $i++ ) { ?>
+                <a href="#" class="list-group-item">
+                    <div>
+                        <div class="logo-cell">
+                            <div>
+                                <span><?php echo $recentActivity[$i]->abbreviation; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="info-cell">
+                            <h5 class="list-group-item-heading"><strong><?php echo $recentActivity[$i]->encounter; ?></strong></h5>
+                            <p class="list-group-item-text"><?php echo $recentActivity[$i]->guild; ?></p>
+                        </div>
+
+                        <div style="" class="date-cell">
+                            <small><?php echo $recentActivity[$i]->submissionDate; ?></small>
+                        </div>
+                    </div>
+                </a>
+            <?php } ?>
+        <?php } ?>
+    </div>
+</div>
+
+<style>
+    .recent-activity-panel .list-group-item {
+        padding:8px 5px;
+    }
+
+    .recent-activity-panel .list-group-item > div {
+        display:table;
+        width:100%;
+    }
+
+    .recent-activity-panel .logo-cell {
+        text-align:center;
+        display:table-cell;
+        vertical-align:middle;
+        width:10%;
+        border-right:1px solid #000;
+    }
+
+    .recent-activity-panel .logo-cell > div {
+        height:38px;
+        width:38px;
+        border:1px solid #000;
+        border-radius:50% !important;
+        margin-right:5px;
+        line-height:38px;
+        background-color:black;
+        color:white;
+        font-size:19px;
+    }
+
+    .recent-activity-panel .info-cell {
+        text-align:left;
+        display:table-cell;
+        vertical-align:middle;
+        width:85%;
+        padding-left:5px;
+    }
+
+    .recent-activity-panel .date-cell {
+        display:table-cell;
+        vertical-align:middle;
+        width:5%;
+    }
+</style>

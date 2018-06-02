@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-xs-7">
+        <div class="thumbnail">
+            <img src="http://www.pantheonmmo.com/images/screenshots/170925/170925_02_1080p.jpg" class="img-responsive">
+            <div class="caption">
+                <p class="text-center">
+                    <span class="h2"><?php echo $mostRecentSubmission->encounter; ?></span>
+                    <br>
+                    <?php echo $mostRecentSubmission->dungeon; ?>
+                    <br>
+                    <?php echo $mostRecentSubmission->submissionDate; ?>
+                </p>
+
+                <div style="display:table; width:100%;">
+                    <div style="display:table-cell; width:33%; text-align:center;">
+                        <div style="width:150px; height:150px; border:1px dotted rgba(0, 0, 0, 0.30); border-radius:50% !important; text-align:center; display:inline-block; vertical-align:middle; padding-top:35px;">
+                            <div style="margin-top:-20px; min-height:31px;"><i class="fa fa-trophy fa-fw fa-lg" style="color:#FFD700; font-size:3.0em;"></i></div>
+                            <div style="margin-top:-10px; font-size:3.5em;"><?php echo convertToOrdinal($mostRecentSubmission->worldRank); ?></div>
+                            <div style="margin-top:-10px;"><small style="color:#777;">World Rank</small></div>
+                        </div>       
+                    </div>
+
+                    <div style="display:table-cell; width:33%; text-align:center;">
+                        <div style="width:150px; height:150px; border:1px dotted rgba(0, 0, 0, 0.30); border-radius:50% !important; text-align:center; display:inline-block; vertical-align:middle; padding-top:35px;">
+                            <div style="margin-top:-20px; min-height:31px;"><i class="fa fa-trophy fa-fw fa-lg" style="color:#C0C0C0; font-size:3.0em;"></i></div>
+                            <div style="margin-top:-10px; font-size:3.5em;"><?php echo convertToOrdinal($mostRecentSubmission->regionRank); ?></div>
+                            <div style="margin-top:-10px;"><small style="color:#777;">Region Rank</small></div>
+                        </div>       
+                    </div>
+
+                    <div style="display:table-cell; width:33%; text-align:center;">
+                        <div style="width:150px; height:150px; border:1px dotted rgba(0, 0, 0, 0.30); border-radius:50% !important; text-align:center; display:inline-block; vertical-align:middle; padding-top:35px;">
+                            <div style="margin-top:-20px; min-height:31px;"><i class="fa fa-trophy fa-fw fa-lg" style="color:#CD7F32; font-size:3.0em;"></i></div>
+                            <div style="margin-top:-10px; font-size:3.5em;"><?php echo convertToOrdinal($mostRecentSubmission->serverRank); ?></div>
+                            <div style="margin-top:-10px;"><small style="color:#777;">Server Rank</small></div>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-5">
+        <ul class="list-group">
+            <?php if ( count($recentSubmissions) == 0 ) { ?>
+                Nope
+            <?php } else { ?>
+                <?php for ( $i = 0; $i < count($recentSubmissions); $i++ ) { ?>
+                    <?php $guild = $recentSubmissions[$i]; ?>
+        
+                    <a class="list-group-item" style="margin-top:5px; margin-bottom:14px; padding:0px; border-left:20px #ddd solid;">
+                        <div style="display:table; width:100%; padding-right:15px;">
+                            <div style="display:table-cell; padding:6px 5px; width:55%;">
+                                <h4 class="list-group-item-heading"><strong><?php echo $guild->encounter; ?></strong></h3>
+                                <p class="list-group-item-text" style="margin-top:-6px;"><?php echo $guild->dungeon; ?></p>
+                                <p class="list-group-item-text" style="margin-top:0px;"><?php echo $guild->submissionDate; ?></p>
+                            </div>
+                            
+                            <div style="display:table-cell; text-align:center; vertical-align:middle; padding:6px 0px; width:15%;">
+                                <div>               
+                                    <div style="margin-top:5px; font-size:1.4em;"><?php echo convertToOrdinal($guild->worldRank); ?></div>
+                                    <div style="margin-top:-5px;"><small style="color:#777;">World</small></div>
+                                </div>
+                            </div>
+        
+                            <div style="display:table-cell; text-align:center; vertical-align:middle; padding:6px 0px; width:15%;">
+                                <div style="border-left:1px solid rgba(0, 0, 0, 0.20); border-right:1px solid rgba(0, 0, 0, 0.20);">
+                                    <div style="margin-top:5px; font-size:1.4em;"><?php echo convertToOrdinal($guild->regionRank); ?></div>
+                                    <div style="margin-top:-5px;"><small style="color:#777;">Region</small></div>
+                                </div>
+                            </div>
+        
+                            <div style="display:table-cell; text-align:center; vertical-align:middle; padding:6px 0px; width:15%;">
+                                <div>
+                                    <div style="margin-top:5px; font-size:1.4em;"><?php echo convertToOrdinal($guild->serverRank); ?></div>
+                                    <div style="margin-top:-5px;"><small style="color:#777;">Server</small></div>
+                                </div>
+                            </div>
+        
+                            <!--
+                            <div style="display:table-cell; text-align:center; vertical-align:middle; padding:6px 0px; width:10%; line-height:58px;">
+                                <button type="button" class="btn btn-primary text-center" style="height:50px; width:50px; border-radius:50% !important;">
+                                    <i class="fa fa-youtube" style="color:#fff; font-size:24px;"></i>
+                                </button>
+                            </div>
+        
+                            <div style="display:table-cell; text-align:center; vertical-align:middle; padding:6px 0px; width:10%; line-height:58px;">
+                                <button type="button" class="btn btn-primary text-center" style="height:50px; width:50px; border-radius:50% !important;">
+                                    <i class="fa fa-camera" style="color:#fff; font-size:24px;"></i>
+                                </button>
+                            </div>
+                            -->
+        
+                            <!--
+                            <div style="display:table-cell; text-align:right; vertical-align:middle; padding:10px 0px;">
+                                <div style="display:inline-block; height:65px; width:65px; border:1px solid #337ab7; border-radius:50% !important; text-align:center; vertical-align:middle; color:#000; margin-left:4px; margin-right:4px;">
+                                    <div style="margin-top:5px;"><small style="color:#777;">World</small></div>
+                                    <div style="margin-top:-5px; font-size:1.6em;"><?php echo $guild->worldRank; ?></div>
+                                </div>
+                
+                                <div style="display:inline-block; height:65px; width:65px; border:1px solid #337ab7; border-radius:50% !important; text-align:center; vertical-align:middle; color:#000; margin-left:4px; margin-right:4px;">
+                                    <div style="margin-top:5px;"><small style="color:#777;">Region</small></div>
+                                    <div style="margin-top:-5px; font-size:1.6em;"><?php echo $guild->regionRank; ?></div>
+                                </div>
+                
+                                <div style="display:inline-block; height:65px; width:65px; border:1px solid #337ab7; border-radius:50% !important; text-align:center; vertical-align:middle; color:#000; margin-left:4px; margin-right:4px;">
+                                    <div style="margin-top:5px;"><small style="color:#777;">Server</small></div>
+                                    <div style="margin-top:-5px; font-size:1.6em;"><?php echo $guild->serverRank; ?></div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </a>
+                <?php } ?>
+            <?php } ?>
+        </ul>
+    </div>
+</div>

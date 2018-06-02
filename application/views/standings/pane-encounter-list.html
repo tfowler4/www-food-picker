@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+    <div class="panel-heading text-left">
+        <div class="side-panel-header">
+            <div class="left">
+                <div>Encounter Standings</div>
+            </div>
+
+            <div class="right">
+                <a href="#" class="collapse-pane-btn"><i class="fa fa-compress"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <select class="form-control encounter-list">
+        <?php for ( $i = 0; $i < count($encounters); $i++ ) { ?>
+            <option value="<?php echo $encounters[$i]->id; ?>"><?php echo $encounters[$i]->name; ?></option>
+        <?php } ?>
+    </select>
+</div>
+
+<script>
+    $('.encounter-list').selectpicker({
+        liveSearchStyle : 'contains',
+        liveSearch : true,
+        width : '100%',
+        size : 6
+    });
+</script>

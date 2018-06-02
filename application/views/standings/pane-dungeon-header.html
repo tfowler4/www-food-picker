@@ -1,0 +1,30 @@
+<div style="display:table; width:100%;">
+    <div style="display:table-cell; vertical-align:middle;">
+        <div style="font-size:28px; font-family:'Helvetica';">
+            <?php echo $profile->name . ' Standings'; ?>
+        </div>
+
+        <div id="last-updated-text">
+            <small><i>Last Updated: <?php echo date("m/d/Y h:i"); ?></i></small>
+        </div>
+    </div>
+
+    <div style="display:table-cell; vertical-align:middle; text-align:right;">
+        <select id="encounter-selecter" class="form-control" title="Select Encounter" data-error="Select an Encounter">
+            <?php for ( $i = 0; $i < count($encounters); $i++ ) { ?>
+                <option value="<?php echo $encounters[$i]->id; ?>"><?php echo $encounters[$i]->name; ?></option>
+            <?php } ?>
+        </select>
+
+        <a id="encounter-selecter-btn" href="#" class="btn btn-default" data-id="" data-view-filter="world" data-view-type="encounter">Go</a>
+    </div>
+</div>
+
+<script>
+    $('#encounter-selecter').selectpicker({
+        liveSearchStyle : 'contains',
+        liveSearch : true,
+        width : 'auto',
+        size : 6
+    });
+</script>

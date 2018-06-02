@@ -1,0 +1,63 @@
+<div class="panel panel-primary">
+    <div class="panel-heading text-left">
+        <div class="side-panel-header">
+            <div class="left">
+                <div>Dungeon Details</div>
+            </div>
+
+            <div class="right">
+                <a href="#" class="collapse-pane-btn"><i class="fa fa-compress"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group panel-content">
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $name; ?></strong></h5>
+            <p class="list-group-item-text">Name</p>
+        </a>
+
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $dateAvailable; ?></strong></h5>
+            <p class="list-group-item-text">Opening Date</p>
+        </a>
+
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $tier; ?></strong></h5>
+            <p class="list-group-item-text">Tier</p>
+        </a>
+
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $raidSize; ?> Players</strong></h5>
+            <p class="list-group-item-text">Raid Size</p>
+        </a>
+
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $numOfEncounters; ?> Encounters</strong></h5>
+            <p class="list-group-item-text"># of Encounters</p>
+        </a>
+
+        <a href="#" class="list-group-item" style="padding:8px 5px;">
+            <h5 class="list-group-item-heading"><strong><?php echo $numOfCompletions; ?> Guild(s)</strong></h5>
+            <p class="list-group-item-text"># of Completions</p>
+        </a>
+
+        <?php if ( !empty($firstGuildClear) ) { ?>
+            <a href="#" class="list-group-item" style="padding:8px 5px;">
+                <h5 class="list-group-item-heading">
+                    <span class="flag-icon flag-icon-<?php echo $firstGuildClear->country; ?>" style="border: 1px solid rgba(0,0,0,1.3);"></span> <strong><?php echo $firstGuildClear->name; ?></strong>
+                </h5>
+                <p class="list-group-item-text">First Clear</p>
+            </a>
+        <?php } ?>
+
+        <?php if ( !empty($recentGuildClear) ) { ?>
+            <a href="#" class="list-group-item" style="padding:8px 5px;">
+                <h5 class="list-group-item-heading">
+                    <span class="flag-icon flag-icon-<?php echo $recentGuildClear->country; ?>" style="border: 1px solid rgba(0,0,0,1.3);"></span> <strong><?php echo $recentGuildClear->name; ?></strong>
+                </h5>
+                <p class="list-group-item-text">Most Recent Clear</p>
+            </a>
+        <?php } ?>
+    </div>
+</div>
